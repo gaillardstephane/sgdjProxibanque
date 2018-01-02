@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+
+body {
+	background-color: #8BE5A6; 
+	font-family:'DejaVu Sans Mono', monospace;
+}
+
+form {
+	background: #9BFFD8; 
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    box-align: right; 
+	
+}
+
+form [type=text]  {
+	width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    box-align: end;
+	
+}
+
+form [type=password]  {
+	width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    box-align: end;
+	
+}
+
+input {
+	width: 200px;
+	float : center;
+	
+	
+}
