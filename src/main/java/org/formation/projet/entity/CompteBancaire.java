@@ -1,6 +1,7 @@
 package org.formation.projet.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +17,9 @@ public class CompteBancaire {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idcomptebancaire")
 	private String idCompteBancaire;
-	private double solde;
+	private double solde ;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST})
 	@JoinColumn(name="client_id")

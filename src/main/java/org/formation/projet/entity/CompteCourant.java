@@ -2,7 +2,7 @@ package org.formation.projet.entity;
 
 public class CompteCourant extends CompteBancaire{
 
-	private double decouvert;
+	private double decouvert ;
 	
 	
 	public CompteCourant() {

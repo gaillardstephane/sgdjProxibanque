@@ -3,11 +3,6 @@ package org.formation.projet.entity;
 public class CompteEpargne extends CompteBancaire {
 
 	private double tauxRemuneration;
-
-	
-	
-	
-	
 	
 	public CompteEpargne() {
 		super();

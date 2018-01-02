@@ -40,7 +40,7 @@ public class ServletClientAdd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		int idClient = Integer.parseInt(request.getParameter("idClient"));
+	
 		String prenom = request.getParameter("prenomClient");
 		String nom = request.getParameter("nomClient");
 

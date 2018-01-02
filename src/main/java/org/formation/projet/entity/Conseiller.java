@@ -26,6 +26,12 @@ public class Conseiller {
 		super();
 	}
 
+	public Conseiller(Long idConseiller, String password) {
+		super();
+		this.idConseiller = idConseiller;
+		this.password = password;
+	}
+
 	public Long getIdConseiller() {
 		return idConseiller;
 	}
