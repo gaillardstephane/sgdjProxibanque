@@ -10,7 +10,11 @@ import javax.persistence.TypedQuery;
 import org.formation.projet.entity.Client;
 import org.formation.projet.entity.CompteEpargne;
 
-
+/**
+ * @author David Stephane CRUD compte épargne, à modifier la méthode Get par ID
+ *         en passant un id
+ *
+ */
 public class CrudCompteEpargne implements ICrudCompteEpargne {
 
 	@Override

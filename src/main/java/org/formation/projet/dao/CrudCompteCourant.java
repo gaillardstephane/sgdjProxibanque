@@ -10,6 +10,13 @@ import javax.persistence.TypedQuery;
 import org.formation.projet.entity.Client;
 import org.formation.projet.entity.CompteCourant;
 
+
+
+/**
+ * @author David Stephane CRUD compte courant, à modifier la méthode Get par ID
+ *         en passant un id
+ *
+ */
 public class CrudCompteCourant implements ICrudCompteCourant {
 
 	@Override

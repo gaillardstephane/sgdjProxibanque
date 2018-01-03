@@ -13,32 +13,35 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
-
+/**
+ * @author David Stephane : Class Client, inclus la Class Adresse, est liée à la
+ *         Class compte par une relation OneToMany ; et est liée à la Class
+ *         Conseiller par une relation ManyToOne
+ *
+ */
 @Entity
 public class Client {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idClient;
-	
+
 	private String nom;
 	private String prenom;
 	private String email;
-	
+
 	@Embedded
 	private Adresse adresse;
-	
-	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.REMOVE})
-	@JoinColumn(name="conseiller_id")
+
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@JoinColumn(name = "conseiller_id")
 	private Conseiller conseiller;
-	
-	@OneToMany(mappedBy="client")
-	private Collection<CompteBancaire> listCompte =new HashSet<>() ;
+
+	@OneToMany(mappedBy = "client")
+	private Collection<CompteBancaire> listCompte = new HashSet<>();
 
 	public Client() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Long getIdClient() {
@@ -97,15 +100,15 @@ public class Client {
 		this.listCompte = listCompte;
 	}
 
-	public void addCompteBancaire (CompteBancaire compteBancaire) {
+	public void addCompteBancaire(CompteBancaire compteBancaire) {
 		compteBancaire.setClient(this);
-		listCompte.add(compteBancaire); 
+		listCompte.add(compteBancaire);
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
 				+ ", adresse=" + adresse + ", conseiller=" + conseiller + ", listCompte=" + listCompte + "]";
 	}
-	
+
 }

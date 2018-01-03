@@ -11,29 +11,35 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * @author David et Stephane : cette classe est liée à la Classe Client et 
+ *         cascade avec celle-ci, cette Classe est parente de CompteCourant et CompteBancaire
+ *
+ */
 @Entity
-@Inheritance(strategy= InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class CompteBancaire {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name="idcomptebancaire")
-	private String idCompteBancaire;
-	private double solde ;
-	
-	@ManyToOne(cascade= {CascadeType.PERSIST})
-	@JoinColumn(name="client_id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idcomptebancaire")
+	private Long idCompteBancaire;
+
+	private double solde;
+
+	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "client_id")
 	private Client client;
-	
+
 	public CompteBancaire() {
 		super();
 	}
 
-	public String getIdCompteBancaire() {
+	public Long getIdCompteBancaire() {
 		return idCompteBancaire;
 	}
 
-	public void setIdCompteBancaire(String idCompteBancaire) {
+	public void setIdCompteBancaire(Long idCompteBancaire) {
 		this.idCompteBancaire = idCompteBancaire;
 	}
 
@@ -58,7 +64,4 @@ public class CompteBancaire {
 		return "CompteBancaire [idCompteBancaire=" + idCompteBancaire + ", solde=" + solde + ", client=" + client + "]";
 	}
 
-	
-
-	
 }

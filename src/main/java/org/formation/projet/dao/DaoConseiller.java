@@ -11,12 +11,22 @@ import org.formation.projet.entity.Client;
 import org.formation.projet.entity.Conseiller;
 import org.formation.projet.entity.Gerant;
 
+/**
+ * @author David Stephane CRUD client, méthode postConseiller pour incrire un
+ *         nouveau conseiller, putConseiller pour une mise à jour,
+ *         getConseillerById pour aller chercher un client
+ *         getAllConseillersByIdgerant pour trouver la liste des conseillers par
+ *         gerant et enfin delete conseiller pour effacer un conseillser
+ *
+ */
 public class DaoConseiller implements ICrudConseiller {
+
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+	EntityManager em = emf.createEntityManager();
 
 	@Override
 	public void postConseiller(Conseiller conseiller) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
+
 		EntityTransaction tnx = em.getTransaction();
 
 		try {
@@ -39,10 +49,8 @@ public class DaoConseiller implements ICrudConseiller {
 	}
 
 	@Override
-	public Conseiller getConseillerById(Conseiller conseiller) {
+	public Conseiller getConseillerById(Long idConseiller) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 
 		Conseiller conseillersession = new Conseiller();
@@ -50,8 +58,9 @@ public class DaoConseiller implements ICrudConseiller {
 		try {
 			tnx.begin();
 
-			conseillersession = em.find(Conseiller.class, conseiller.getIdConseiller());
+			conseillersession = em.find(Conseiller.class, idConseiller);
 
+			// System.out.println("88888888888888888"+conseillersession.getPrenomConseiller());
 			tnx.commit();
 		} catch (Exception e) {
 			if (tnx != null) {
@@ -69,40 +78,37 @@ public class DaoConseiller implements ICrudConseiller {
 
 	@Override
 	public Collection<Conseiller> getAllConseillersByIdConseiller(Gerant gerant) {
-//
-//		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-//		EntityManager em = emf.createEntityManager();
-//		EntityTransaction tnx = em.getTransaction();
-//
+		//
+		// EntityTransaction tnx = em.getTransaction();
+		//
 		Collection<Conseiller> collectionConseiller = new HashSet<>();
-//
-//		try {
-//			tnx.begin();
-//
-//			TypedQuery<Client> query = em.createQuery(" select c from Client where idGerant= ?1 ", Conseiller.class)
-//					.setParameter(1, gerant.getIdGerant());
-//			collectionClient = query.getResultList();
-//
-//			tnx.commit();
-//		} catch (Exception e) {
-//			if (tnx != null) {
-//				tnx.rollback();
-//			}
-//			e.printStackTrace();
-//		} finally {
-//			if (em != null) {
-//				em.close();
-//			}
-//		}
-//
-	return collectionConseiller;
+		//
+		// try {
+		// tnx.begin();
+		//
+		// TypedQuery<Client> query = em.createQuery(" select c from Client where
+		// idGerant= ?1 ", Conseiller.class)
+		// .setParameter(1, gerant.getIdGerant());
+		// collectionClient = query.getResultList();
+		//
+		// tnx.commit();
+		// } catch (Exception e) {
+		// if (tnx != null) {
+		// tnx.rollback();
+		// }
+		// e.printStackTrace();
+		// } finally {
+		// if (em != null) {
+		// em.close();
+		// }
+		// }
+		//
+		return collectionConseiller;
 	}
 
 	@Override
 	public void putConseiller(Conseiller conseiller) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 
 		try {
@@ -127,8 +133,6 @@ public class DaoConseiller implements ICrudConseiller {
 	@Override
 	public void deleteConseiller(Conseiller conseiller) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
 		EntityTransaction tnx = em.getTransaction();
 
 		try {

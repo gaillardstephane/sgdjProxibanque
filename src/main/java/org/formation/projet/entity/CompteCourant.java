@@ -1,10 +1,14 @@
 package org.formation.projet.entity;
 
-public class CompteCourant extends CompteBancaire{
+/**
+ * @author David et Stephane : cette classe est liée à la Classe Client et
+ *         cascade avec celle-ci, cette Classe hérite de CompteBancaire
+ *
+ */
+public class CompteCourant extends CompteBancaire {
 
-	private double decouvert ;
-	
-	
+	private double decouvert;
+
 	public CompteCourant() {
 		super();
 	}
@@ -20,6 +24,6 @@ public class CompteCourant extends CompteBancaire{
 
 	public void setDecouvert(double decouvert) {
 		this.decouvert = decouvert;
-	} 
-	
+	}
+
 }

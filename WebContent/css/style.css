@@ -1,0 +1,121 @@
+<meta charset="utf-8">
+
+/*<link rhref="font-family: 'Roboto', sans-serif;" >
+couleurs : 
+https://color.adobe.com/fr/Deep-Alpha-color-theme-10288826/edit/?copy=true&base=2&rule=Custom&selected=1&name=Copie%20de%20Deep%20Alpha&mode=rgb&rgbvalues=0.141176,0.215686,0.321569,0.0392157,0.380392,0.529412,1,1,1,0.780392,0.780392,0.780392,0.94902,0.34902,0.266667&swatchOrder=0,1,2,3,4
+bleu foncé : #243752;
+bleu clair :#0A6187;
+*/
+@font-face {
+	font-family: 'Roboto';
+	src:'font/Roboto.tff';
+
+}
+
+body, html {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+a, a:hover {
+	text-decoration: none;
+}
+
+.container-fluid{
+	padding: 0px;
+}
+
+.header {
+	background-color: #243752;
+	height: 100px;
+	line-height: 100px;
+
+}
+
+.logo {
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;	
+	float: left;
+}
+
+.menu {
+	float: right;
+
+}
+
+.menu a {
+	color: #fff;
+	margin-right: 20px;
+}
+
+.menu a:hover {
+	color: #0A6187;
+}
+
+.banner {
+	width: 100%
+	height: 100%;
+}
+
+.ban {
+	width: 100%
+	height: 100%;
+	background-color: black;
+}
+
+.ban img{
+	width: auto;
+	max-width: 100%;
+}
+
+.inner-banner{
+	position: absolute;
+	top: 20%;
+	left: 0;
+	width: 100%
+	text-align: center;
+}
+
+.inner-banner .btn-custom{
+	background-color: #0A6187;
+	color: #ffffff;
+}
+
+.formulaireContact {
+	width: 500px;
+	display: block;
+	margin: 0 auto;
+}
+
+.footer p {
+	text-align: center;
+	padding-top: 10px;
+}
+
+input {
+	margin-bottom: 20px;
+}
+
+input [type=text] {
+	height: 50px
+	width: 500px;
+	border: none;
+}
+
+input [type=email] {
+	height: 50px
+	width: 500px;
+	border: none;
+}
+
+textarea {
+	width: 500px;
+	height: 200px;
+	resize: horizontal;
+}

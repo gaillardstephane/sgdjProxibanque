@@ -7,6 +7,11 @@ import org.formation.projet.dao.ICrudClient;
 import org.formation.projet.entity.Client;
 import org.formation.projet.entity.Conseiller;
 
+/**
+ * @author David Stephane : couche service Client qui relaie les méthodes de
+ *         l'interface IcrudClient
+ *
+ */
 public class ServiceClient {
 
 	ICrudClient daoClient = new DaoClient();
@@ -15,8 +20,8 @@ public class ServiceClient {
 		daoClient.postClient(client);
 	}
 
-	public Client getClient(Client client) {
-		return daoClient.getClientById(client);
+	public Client getClient(Long idClient) {
+		return daoClient.getClientById(idClient);
 	}
 
 	public Collection<Client> getAllClients(Conseiller conseiller) {

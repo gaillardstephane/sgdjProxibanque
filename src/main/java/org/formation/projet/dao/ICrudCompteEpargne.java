@@ -6,6 +6,11 @@ import org.formation.projet.entity.Client;
 import org.formation.projet.entity.CompteEpargne;
 
 
+/**
+ * @author David Stephane interface CRUD compteEpargne relaie les méthodes de
+ *         DaoCompteEpargne
+ *
+ */
 public interface ICrudCompteEpargne  {
 
 	public void postCompteEpargne(CompteEpargne comptepargne);

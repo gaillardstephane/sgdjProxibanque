@@ -10,20 +10,31 @@ import javax.persistence.TypedQuery;
 import org.formation.projet.entity.Client;
 import org.formation.projet.entity.Conseiller;
 
+/**
+ * @author David Stephane CRUD client, méthode postClient pour incrire un
+ *         nouveau client, putClient pour une miseà jour, getClientById pour
+ *         aller chercher un client getAllClientsByIdConseiller pour trouver la
+ *         liste des client par conseiller et enfin delete client pour effacer
+ *         un client
+ */
+
 public class DaoClient implements ICrudClient {
 
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+	EntityManager em = emf.createEntityManager();
+	
+	
+	
 	@Override
 	public void postClient(Client client) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
+		
 		EntityTransaction tnx = em.getTransaction();
 
 		try {
 			tnx.begin();
 
 			em.persist(client);
-			System.out.println("added dao");
-
+			
 			tnx.commit();
 		} catch (Exception e) {
 			if (tnx != null) {
@@ -38,10 +49,9 @@ public class DaoClient implements ICrudClient {
 	}
 
 	@Override
-	public Client getClientById(Client client) {
+	public Client getClientById(Long idClient) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
+		
 		EntityTransaction tnx = em.getTransaction();
 
 		Client clientsession = new Client();
@@ -49,7 +59,7 @@ public class DaoClient implements ICrudClient {
 		try {
 			tnx.begin();
 
-			clientsession = em.find(Client.class, client.getIdClient());
+			clientsession = em.find(Client.class, idClient);
 
 			tnx.commit();
 		} catch (Exception e) {
@@ -69,8 +79,7 @@ public class DaoClient implements ICrudClient {
 	@Override
 	public Collection<Client> getAllClientsByIdConseiller(Conseiller conseiller) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
+		
 		EntityTransaction tnx = em.getTransaction();
 
 		Collection<Client> collectionClient = new HashSet<>();
@@ -78,8 +87,8 @@ public class DaoClient implements ICrudClient {
 		try {
 			tnx.begin();
 
-			TypedQuery<Client> query = em.createQuery(" select c from Client where idConseiller= ?1 ", Client.class)
-					.setParameter(1, conseiller.getIdConseiller());
+			TypedQuery<Client> query = em.createQuery(" select c from Client c where conseiller=:idcon", Client.class);
+			query.setParameter("idcon",  conseiller.getIdConseiller());
 			collectionClient = query.getResultList();
 
 			tnx.commit();
@@ -100,8 +109,7 @@ public class DaoClient implements ICrudClient {
 	@Override
 	public void putClient(Client client) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
+		
 		EntityTransaction tnx = em.getTransaction();
 
 		try {
@@ -128,8 +136,7 @@ public class DaoClient implements ICrudClient {
 	@Override
 	public void deleteClient(Client client) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-		EntityManager em = emf.createEntityManager();
+		
 		EntityTransaction tnx = em.getTransaction();
 
 		try {

@@ -7,9 +7,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+/**
+ * @author David Stephane : Class Conseiller, est liée à la Class Client par une
+ *         relation ManyToOne, possède une méthode addClient pour gérer le
+ *         ReverseEnd
+ *
+ */
+
 @Entity
+@NamedQueries({
+		@NamedQuery(name = "conseiller.login", query = "select c from Conseiller c where c.nomConseiller=?1 and c.password=?2") })
 public class Conseiller {
 
 	@Id
@@ -24,6 +35,11 @@ public class Conseiller {
 
 	public Conseiller() {
 		super();
+	}
+
+	public Conseiller(String nomConseiller) {
+		super();
+		this.nomConseiller = nomConseiller;
 	}
 
 	public Conseiller(Long idConseiller, String password) {
@@ -76,6 +92,12 @@ public class Conseiller {
 		listClient.add(client);
 		client.setConseiller(this);
 
+	}
+
+	@Override
+	public String toString() {
+		return "Conseiller [idConseiller=" + idConseiller + ", nomConseiller=" + nomConseiller + ", prenomConseiller="
+				+ prenomConseiller + ", password=" + password + ", listClient=" + listClient + "]";
 	}
 
 }
