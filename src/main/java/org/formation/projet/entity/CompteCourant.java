@@ -1,10 +1,13 @@
 package org.formation.projet.entity;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * @author David et Stephane : cette classe est liée à la Classe Client et
  *         cascade avec celle-ci, cette Classe hérite de CompteBancaire
  *
  */
+@XmlRootElement(name="CompteCourant")
 public class CompteCourant extends CompteBancaire {
 
 	private double decouvert;

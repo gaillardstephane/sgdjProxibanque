@@ -10,12 +10,14 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author David et Stephane : cette classe est liée à la Classe Client et 
  *         cascade avec celle-ci, cette Classe est parente de CompteCourant et CompteBancaire
  *
  */
+@XmlRootElement(name="CompteBancaire")
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class CompteBancaire {

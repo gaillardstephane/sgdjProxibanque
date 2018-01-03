@@ -1,6 +1,7 @@
 package org.formation.projet.entity;
 
 import javax.persistence.Embeddable;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 
@@ -8,6 +9,7 @@ import javax.persistence.Embeddable;
  * @author David Stephane : Class Adresse, classe incluse dans la Class Client
  *
  */
+@XmlRootElement(name="Adresse")
 @Embeddable
 public class Adresse {
 

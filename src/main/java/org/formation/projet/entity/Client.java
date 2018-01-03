@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author David Stephane : Class Client, inclus la Class Adresse, est liée à la
@@ -19,6 +20,7 @@ import javax.persistence.OneToMany;
  *         Conseiller par une relation ManyToOne
  *
  */
+@XmlRootElement(name="Client")
 @Entity
 public class Client {
 

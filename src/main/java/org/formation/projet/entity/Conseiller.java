@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * @author David Stephane : Class Conseiller, est liée à la Class Client par une
@@ -18,6 +19,7 @@ import javax.persistence.OneToMany;
  *
  */
 
+@XmlRootElement(name="Conseiller")
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "conseiller.login", query = "select c from Conseiller c where c.nomConseiller=?1 and c.password=?2") })
