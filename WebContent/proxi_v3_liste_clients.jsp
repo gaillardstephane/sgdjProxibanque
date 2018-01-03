@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 	<title> Proxibanque V3 </title>
 	<!-- font -->
 	<link rhref="font-family: 'Roboto', sans-serif;" />
@@ -44,7 +44,7 @@
 			<div class="row">
 		      <div class="col-md-6 col-md-offset-3">
 		        <div class="well well-sm">
-		          <form class="form-horizontal" method="post" action="ServletAuthentification">
+		          <form class="form-horizontal" method="post" action="sidentifier">
 		          <fieldset>
 		            <legend class="text-center">Liste de vos clients</legend>
 		    
@@ -57,29 +57,26 @@
 						</tr>
 						<c:forEach items="${clientList}" var="client">
 							<tr>
-								<td rowspan="2">${client.prenom}&nbsp;${client.nom}</td>
-								<td>Compte courant: ${client.compteCourant.numeroCompte}</td>
+								<td rowspan="2">${client.prenom} ${client.nom}</td>
+								<td>Compte courant: ${client.listCompte.compteCourant.idCompteBancaire}</td>
 								<td>${client.compteCourant.solde}</td>
- 	 							<td rowspan="2"><div class="button"><a class="tables button" 	
-									href="ViewDetailsClient?idClient=${client.idClient}">Détails</a></div></td>	
- 								<td rowspan="2"><a class="tables" 	-->
-	<%-- 									href="GestionVirement?idClient=${client.idClient}">Virement</a></td> --%> 
-							</tr>
+ 							</tr>
 							<tr>
-								<td>Compte épargne:
-									${client.compteEpargne.numeroCompte}</td>
+								<td>Compte épargne: ${client.listComte.compteEpargne.idCompteBancaire}</td>
 								<td>${client.compteEpargne.solde}</td>
 							</tr>
 						</c:forEach>
-
--->						
 					</table>
 		    
 		            <!-- button actions -->
 		            <div class="form-group">
 		              	<div class="col-md-12 text-right">
-		                	<button type="submit" class="btn btn-primary btn-lg">Valider</button>
-		                 </div>
+		                	<form class="form-horizontal" method="post" action="ServletClientadd" >
+		                	</br>
+		                		<input id="name" name="nomClient" type="text" placeholder="Nom du client" class="form-control">
+		                		<button type="submit" class="btn btn-primary btn-lg">Mettre à jour les informations client</button>
+		                	</form>
+		              	</div>
 		            </div>
 		          </fieldset>
 		          </form>

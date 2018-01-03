@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 	<title> Proxibanque V3 </title>
 	<!-- font -->
 	<link rhref="font-family: 'Roboto', sans-serif;" />
@@ -44,20 +44,20 @@
 			<div class="row">
 				<legend class="text-center"> Modification des données client </legend>
 		      	<div class="col-md-12 col-md-offset-2">
-		        	<div class="col-md-9 text-left">
+		        	<div class="col-md-12 text-left">
 				        <fieldset>
 					        <!-- input des infos client -->
 				            	<br>
-				            	<form class="form-horizontal" method="post" action="ServletClientadd" >
+				            	<form class="form-horizontal" method="post" action="ServletClientUpdate" >
 						            <div class="form-group">
-						              <div class="col-md-9">
+						              <div class="col-md-12 text-right">
 						                <input id="name" name="nomClient" type="text" placeholder="Nom du client" class="form-control">
 						                <input id="name" name="prenomClient" type="text" placeholder="Prénom du client" class="form-control">
 						                <input id="name" name="adresseClient" type="text" placeholder="Adresse" class="form-control">
 						                <input id="name" name="codePostal" type="text" placeholder="Code postal" class="form-control">
 						                <input id="name" name="ville" type="text" placeholder="Ville" class="form-control">
 						                <input id="name" name="numeroTel" type="text" placeholder="Téléphone" class="form-control">
-						                <input id="name" name="email" type="text" placeholder="email de contact" class="form-control">
+						                <input id="name" name="email" type="text" placeholder="Email de contact" class="form-control">
 
 						                <button type="reset" class="btn btn-primary btn-lg"> Recommencer </button>
 						                <button type="submit" class="btn btn-primary btn-lg"> Valider </button>
@@ -65,6 +65,14 @@
 						              </div>
 						            </div>
 		          			    </form>
+		          			    <div class="col-md-12 text-right">
+				                	<form class="form-horizontal" method="post" action="ServletClientSup" >
+				                	</br>
+				                		<input id="name" name="idClient" type="text" placeholder="Nom du client" class="form-control">
+				                		<button type="submit" class="btn btn-primary btn-lg">Supprimer les informations client</button>
+				                	</br>
+				                	</form>
+				              	</div>
 				       	</fieldset>
 		        	</div>
 		      </div>
@@ -77,7 +85,7 @@
 	<footer class="container-fluid contact">
 		<div class="container">
 		<p>
-			Copyright (c) 2017 Copyright Holder All Rights Reserved.
+			</br>Copyright (c) 2017 Copyright Holder All Rights Reserved.
 		</p>
 		</div>
 	</footer>
